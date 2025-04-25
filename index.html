@@ -21,6 +21,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         margin: 0;
         background: black;
@@ -42,8 +46,7 @@
         margin: 0;
         padding: 0;
         display: flex;
-        flex-direction: column; /* added */
-        justify-content: space-between; /* changed from center to space-between */
+        justify-content: center;
         align-items: center;
         min-height: 100vh;
         z-index: 1;
@@ -66,6 +69,11 @@
     /*  hyperlinks     */
     a {
         color: rgb(204, 204, 204);
+        text-decoration-line: underline;
+        text-decoration-style: wavy;
+    }
+    a:hover, a:active {
+        color: rgb(0, 110, 253);
         text-decoration-line: underline;
         text-decoration-style: wavy;
     }
@@ -108,8 +116,11 @@
         justify-content: flex-start;
         text-align: left;
     }
-    .block.pageBottom {
-        margin-bottom: 50vh;
+    .pageBottom {
+        position: relative;
+        width: 100%;
+        margin-bottom: 0;
+        padding-bottom: 20px;  /* Optional: add some space at the bottom */
     }
 
     /*                                                                          background glow*/
@@ -166,6 +177,33 @@
         }
     }
 
+    /*  scroll arrow    *//* Scroll arrow */
+    .scroll-arrow {
+        position: fixed;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center; 
+        bottom: 30px;
+        left: 47%;
+        transform: translateX(-50%);
+        z-index: 11;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        width: 24px;
+        height: 24px;
+        animation: bounce 2s infinite;
+    }
+    .scroll-arrow svg {
+        fill: white;
+        width: 100%;
+        height: 100%;
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(5px); }
+    }
 
   </style>
 </head>
@@ -173,51 +211,61 @@
 <body>
     <div class="desktop-redirect">
         <div class="desktop-display">
-            <p class="header">for wayfinding, reload this page on a mobile device.</p>
+            <p class="header">for wayfinding, reload this page on a mobile device.<br><br>for space and event inquiries, email <u>altarspace.info@gmail.com</u></p>
             <div class="glow"></div>
-            <p class="footer">for space and event inquiries, email <u>altarspace.info@gmail.com</u></p>
+            <p class="footer"></p>
             
         </div>
     </div>
     <div class="mobile-wrapper">
 
-    <!-- text blocks -->
-    <div class="text-container" id="text-content">
-        <div class="block centreJustified" style="height: 60vh; margin-top: 100%;">
-        <div class="infotext">welcome,</div>
+        <!-- text blocks -->
+        <div class="text-container" id="text-content">
+            <div class="block centreJustified" style="height: 70vh; margin-top: 100%;">
+            <div class="infotext">Welcome,</div>
+            </div>
+        <div class="block centreJustified" style="height: 0vh; margin-top: 10vh;">
+            <div class="infotext">To find altar space, <br> navigate to the <br> <a href="https://maps.app.goo.gl/vZ7S1fjTSPCjrL9D8" target="_blank">laneway</a> between 91 and 93 Bell St Coburg.</div>
         </div>
-      <div class="block centreJustified" style="height: 0vh; margin-top: 10vh;">
-        <div class="infotext">to find altar space, <br> navigate to the <br> <a href="https://maps.app.goo.gl/vZ7S1fjTSPCjrL9D8">laneway</a> between 91 and 93 Bell St Coburg</div>
-      </div>
-      <div class="block centreJustified" style="height: 50vh; margin-top: 80%;">
-        <div class="infotext">enter through open corrugated gate next to the bamboo bush.<br>altar space's red metal doors will be directly in sight.</div>
-      </div>
-      <div class="block centreJustified pageBottom" style="height: 60vh; margin-top: 20vh;">
-        <div class="infotext">see you soon.</div>
-      </div>
-    </div>
+        <div class="block centreJustified" style="height: 50vh; margin-top: 80%;">
+            <div class="infotext">Enter through the open corrugated gate next to the bamboo bush.<br>altar space's red metal doors will be directly in sight.</div>
+        </div>
+        <div class="block centreJustified " style="height: 60vh; margin-top: 20vh;">
+            <div class="infotext">See you soon.</div>
+        </div>
+        <div class="block centreJustified pageBottom" style="height: 10vh; margin-top: 60vh;">
+            <div class="infotext" style="font-size: 1.2rem; line-height: 1.5rem;">For accessibility inquiries, contact <a href="mailto:altarspace.info@gmail.com">altarspace.info@gmail.com</a><br>or via DMs <a href="http://instagram.com/altarspace.info">@altarspace.info</a></div>
+        </div>
+        </div>
 
-    <!-- image layers -->
-    <img src="images/bg1.png" class="image-layer" style="top: 0vh;" data-speed="1.6" />
-    <img src="images/bg2.png" class="image-layer" style="top: 0vh;" data-speed="0.6" />
-    <img src="images/bg3.png" class="image-layer" style="top: 0vh;" data-speed="1.2" />
-    <img src="images/bg4.png" class="image-layer" style="top: 0vh;" data-speed="1.5" />
-    <img src="images/bg5.png" class="image-layer" style="top: 50vh;" data-speed="1.4" loading="lazy" />
-    <img src="images/bg6.png" class="image-layer" id="image6" style="top: 120vh;" data-speed=1.2" loading="lazy" />
-    <img src="images/bg7.png" class="image-layer" id="image7" data-speed="1.0" loading="lazy" />
+        <!-- image layers, lower data-speed = faster scroll -->
+        <img src="images/bg1.png" class="image-layer" style="top: 0vh;" data-speed="1.6" />
+        <img src="images/bg2.png" class="image-layer" style="top: 0vh;" data-speed="0.6" />
+        <img src="images/bg3.png" class="image-layer" style="top: 0vh;" data-speed="1.2" />
+        <img src="images/bg4.png" class="image-layer" style="top: 0vh;" data-speed="1.5" />
+        <img src="images/bg5.png" class="image-layer" id="image5" style="top: 50vh;" data-speed="1.4" loading="lazy" />
+        <img src="images/bg6.png" class="image-layer" id="image6" style="top: 120vh;" data-speed=1.4" loading="lazy" />
+        <img src="images/bg7.png" class="image-layer" id="image7" data-speed="1.5" loading="lazy" />
 
+        <div class="scroll-arrow">
+            <svg viewBox="0 0 24 24">
+                <path d="M4 7l8 8 8-8" fill="none" stroke="white" stroke-width="2"/>
+            </svg>
+        </div>
     </div>
 
     <script>
     const layers = document.querySelectorAll('.image-layer');
     const image7 = document.getElementById('image7');
+    const scrollArrow = document.querySelector('.scroll-arrow');
 
+    //img7 is positioned at the bottom of total scrollable page
     function placeImage7() {
         const img6 = document.getElementById('image6');
         const image7 = document.getElementById('image7');
 
         const img6Top = img6.offsetTop;
-        const offset = 800; // px distance you want between image6 and image7
+        const offset = 300; // px distance you want between image6 and image7
 
         image7.style.top = `${img6Top + offset}px`;
 
@@ -236,16 +284,6 @@
         });
     }
 
-    window.addEventListener('scroll', updateParallax);
-    window.addEventListener('resize', () => {
-        placeImage7();
-        updateParallax();
-    });
-
-    window.addEventListener('load', () => {
-        placeImage7();
-        updateParallax();
-    });
 
     // fade in text after key images load
     const images = Array.from(document.querySelectorAll('.image-layer')).slice(0, 3);
@@ -261,10 +299,36 @@
         }
         }
     });
-
     function showText() {
         document.getElementById('text-content').style.opacity = '1';
     }
+
+    // fade out down arrow when past img5
+    function fadeOutArrow() {
+        const image5 = document.getElementById('image5');
+        const image5Bottom = image5.offsetTop + image5.clientHeight;
+        if (window.scrollY > image5Bottom) {
+            scrollArrow.style.opacity = 0;
+        } else {
+            scrollArrow.style.opacity = 1;
+        }
+    }
+
+    //update window on load and resize
+    window.addEventListener('scroll', () => {
+        updateParallax();
+        fadeOutArrow();
+    });
+    window.addEventListener('resize', () => {
+        placeImage7();
+        updateParallax();
+    });
+
+    window.addEventListener('load', () => {
+        placeImage7();
+        updateParallax();
+    });
+    
     </script>
 </body>
 </html>

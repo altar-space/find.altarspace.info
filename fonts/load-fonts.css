@@ -1,72 +1,5 @@
 /*    ALTAR FONTS     */
-/*    find.altarspace.info 
-      comment fonts out when not in use     */
-
-/*                                                          Heading (static serif & gothic)  */
-@font-face {
-  font-family: 'OPTIGorilla';
-  font-style: normal;
-  font-weight: 400;
-  font-display: block ;
-  src: url('OPTIGorilla.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Averia Libre';       
-  font-style: normal;
-  font-weight: 300 400;
-  font-display: block ;
-  src: url('Averia Libre-300.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Averia Libre';       
-  font-style: italic;
-  font-weight: 300 400;
-  font-display: block ;
-  src: url('Averia Libre-Italic.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Averia Libre';       
-  font-style: normal;
-  font-weight: 700;
-  font-display: block ;
-  src: url('Averia Libre-700.woff2') format('woff2');
-}
-
-@font-face {
-/*    best used in all caps, with CloisterOpti in all lower cases    */
-  font-family: 'Averia Serif Libre';       
-  font-style: normal;
-  font-weight: 300 400;
-  font-display: block ;
-  src: url('Averia Serif Libre-300.woff2') format('woff2');
-}
-
-@font-face {
-/*    best used in all lower case, with Averia Serif Libre in all caps    */
-  font-family: 'CLoisterOpti';            
-  font-style: normal;
-  font-weight: 400 900;
-  font-display: block ;
-  src: url('CLoisterOpti-Black.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: "Adelphe";
-  font-weight: normal;
-  font-weight: 400;
-  font-display: block ;
-  src: url("Adelphe-FlorealRegular.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Adelphe";
-  font-weight: italic;
-  font-weight: 400;
-  font-display: block ;
-  src: url("Adelphe-FlorealItalic.woff2") format("woff2");
-}
-  
-
+/*    find.altarspace.info    */
 
 /*                                                        Body (variable sans serif)   */
 @font-face {
@@ -82,22 +15,4 @@
   font-weight: 400 700;
   font-display: block ;
   src: url('Cabin-Italic-VariableFont_wdth,wght.woff2') format('woff2-variations');
-}
-
-
-
-/*                                                        Body (static serif)   */
-@font-face {
-  font-family: 'Crimson Pro';
-  font-style: normal;
-  font-weight: 400 500;
-  font-display: block ;
-  src: url('CrimsonPro-Medium.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Crimson Pro';
-  font-style: italic;
-  font-weight: 400 500;
-  font-display: block ;
-  src: url('CrimsonPro-MediumItalic.woff2') format('woff2');
 }
