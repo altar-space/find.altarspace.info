@@ -14,7 +14,6 @@ h1 {
 }
 
 body {
-    font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
     line-height: 1;
     color: #333;
@@ -25,6 +24,11 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #000000;
+}
+
+.info {
+    color: white;
+    font-family: OPTIGorilla;
 }
 
 /*                                                                          background glow*/

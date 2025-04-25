@@ -2,24 +2,269 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
-    <title>FIND ALTAR</title>
-    <meta name="description" content="FIND ALTAR">
-    <meta name="keywords" content="">
-    <meta name="author" content="d duàn"> 
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="fonts/load-fonts.css">
+  <title>FIND ALTAR</title>
+  <meta name="description" content="FIND ALTAR">
+  <meta name="keywords" content="">
+  <meta name="author" content="d duàn">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="fonts/load-fonts.css" as="style" />
+  <link rel="preload" href="fonts/Cabin-VariableFont_wdth,wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Cabin-Italic-VariableFont_wdth,wght.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fonts/load-fonts.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+        margin: 0;
+        background: black;
+        overflow-x: hidden;
+        font-family: Cabin;
+        color: white;
+    }
+
+    /*  responsive elements     */
+    .desktop-redirect {
+        display: none;
+        font-size: 1.3rem;
+        color: white;
+        text-align: center;
+        padding: 1.2rem;
+        text-shadow: 0 0 6px rgb(0, 0, 0);
+    }
+    .desktop-display {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column; /* added */
+        justify-content: space-between; /* changed from center to space-between */
+        align-items: center;
+        min-height: 100vh;
+        z-index: 1;
+        text-align: center;
+    }
+    .mobile-wrapper {
+        display: block;
+        position: relative;
+        height: auto;
+    }
+    @media (min-width: 768px) {
+        .mobile-wrapper {
+            display: none;
+        }
+        .desktop-redirect {
+            display: block;
+        }
+    }
+
+    /*  hyperlinks     */
+    a {
+        color: rgb(204, 204, 204);
+        text-decoration-line: underline;
+        text-decoration-style: wavy;
+    }
+
+    /*  images     */
+    .image-layer {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        will-change: transform;
+        pointer-events: none;
+    }
+
+    /*  text positions     */
+    .text-container {
+        position: relative;
+        z-index: 10;
+        padding: 0 10vw;
+        opacity: 0;
+        transition: opacity 3s ease-in;
+    }
+    /*  text formatting     */
+    .infotext {
+        max-width: 80vw;
+        margin: 0 auto;
+        font-size: 1.6rem;
+        text-shadow: 0 0 6px rgba(0, 0, 0, 0.849);
+    }
+    .block {
+        display: flex;
+        align-items: center;
+    }
+
+    .block.centreJustified {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .block.leftJustified {
+        justify-content: flex-start;
+        text-align: left;
+    }
+    .block.pageBottom {
+        margin-bottom: 50vh;
+    }
+
+    /*                                                                          background glow*/
+
+    .glow {
+        position: absolute;
+        z-index: 0;
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, #ff6200 10%, transparent 70%);
+        border-radius: 50%;
+        animation: pulse 8s infinite ease-in-out;
+        box-shadow: 0 0 100px rgba(255, 98, 0, 0.3);
+        filter: blur(20px);
+    }
+    @keyframes pulse {
+        0% {
+            transform: scale(0.95);
+            opacity: 0.6;
+        }
+        50% {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+        100% {
+            transform: scale(0.95);
+            opacity: 0.6;
+        }
+    }@-webkit-keyframes pulse {
+        0% {
+            -webkit-transform: scale(0.95);
+            opacity: 0.6;
+        }
+        50% {
+            -webkit-transform: scale(1.05);
+            opacity: 0.8;
+        }
+        100% {
+            -webkit-transform: scale(0.95);
+            opacity: 0.6;
+        }
+    }@-moz-keyframes pulse {
+        0% {
+            -moz-transform: scale(0.95);
+            opacity: 0.6;
+        }
+        50% {
+            -moz-transform: scale(1.05);
+            opacity: 0.8;
+        }
+        100% {
+            -moz-transform: scale(0.95);
+            opacity: 0.6;
+        }
+    }
+
+
+  </style>
 </head>
+
 <body>
-    <header>
-    </header>
+    <div class="desktop-redirect">
+        <div class="desktop-display">
+            <p class="header">for wayfinding, reload this page on a mobile device.</p>
+            <div class="glow"></div>
+            <p class="footer">for space and event inquiries, email <u>altarspace.info@gmail.com</u></p>
+            
+        </div>
+    </div>
+    <div class="mobile-wrapper">
 
-    <div class="glow"></div>
+    <!-- text blocks -->
+    <div class="text-container" id="text-content">
+        <div class="block centreJustified" style="height: 60vh; margin-top: 100%;">
+        <div class="infotext">welcome,</div>
+        </div>
+      <div class="block centreJustified" style="height: 0vh; margin-top: 10vh;">
+        <div class="infotext">to find altar space, <br> navigate to the <br> <a href="https://maps.app.goo.gl/vZ7S1fjTSPCjrL9D8">laneway</a> between 91 and 93 Bell St Coburg</div>
+      </div>
+      <div class="block centreJustified" style="height: 50vh; margin-top: 80%;">
+        <div class="infotext">enter through open corrugated gate next to the bamboo bush.<br>altar space's red metal doors will be directly in sight.</div>
+      </div>
+      <div class="block centreJustified pageBottom" style="height: 60vh; margin-top: 20vh;">
+        <div class="infotext">see you soon.</div>
+      </div>
+    </div>
 
-    <footer>
-    </footer>
+    <!-- image layers -->
+    <img src="images/bg1.png" class="image-layer" style="top: 0vh;" data-speed="1.6" />
+    <img src="images/bg2.png" class="image-layer" style="top: 0vh;" data-speed="0.6" />
+    <img src="images/bg3.png" class="image-layer" style="top: 0vh;" data-speed="1.2" />
+    <img src="images/bg4.png" class="image-layer" style="top: 0vh;" data-speed="1.5" />
+    <img src="images/bg5.png" class="image-layer" style="top: 50vh;" data-speed="1.4" loading="lazy" />
+    <img src="images/bg6.png" class="image-layer" id="image6" style="top: 120vh;" data-speed=1.2" loading="lazy" />
+    <img src="images/bg7.png" class="image-layer" id="image7" data-speed="1.0" loading="lazy" />
+
+    </div>
+
+    <script>
+    const layers = document.querySelectorAll('.image-layer');
+    const image7 = document.getElementById('image7');
+
+    function placeImage7() {
+        const img6 = document.getElementById('image6');
+        const image7 = document.getElementById('image7');
+
+        const img6Top = img6.offsetTop;
+        const offset = 800; // px distance you want between image6 and image7
+
+        image7.style.top = `${img6Top + offset}px`;
+
+        //const body = document.body;
+        //const html = document.documentElement;
+        //const pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+        //const imgHeight = image7.offsetHeight;
+        //image7.style.top = `${pageHeight - imgHeight}px`;
+    }
+
+    function updateParallax() {
+        const scrollY = window.scrollY;
+        layers.forEach(layer => {
+        const speed = parseFloat(layer.dataset.speed);
+        layer.style.transform = `translateY(${scrollY * (speed - 1)}px)`;
+        });
+    }
+
+    window.addEventListener('scroll', updateParallax);
+    window.addEventListener('resize', () => {
+        placeImage7();
+        updateParallax();
+    });
+
+    window.addEventListener('load', () => {
+        placeImage7();
+        updateParallax();
+    });
+
+    // fade in text after key images load
+    const images = Array.from(document.querySelectorAll('.image-layer')).slice(0, 3);
+    let loaded = 0;
+    images.forEach(img => {
+        if (img.complete) {
+        loaded++;
+        if (loaded >= images.length) showText();
+        } else {
+        img.onload = () => {
+            loaded++;
+            if (loaded >= images.length) showText();
+        }
+        }
+    });
+
+    function showText() {
+        document.getElementById('text-content').style.opacity = '1';
+    }
+    </script>
 </body>
 </html>
