@@ -1,41 +1,127 @@
 /* altarspace.info home page (c) d duàn 2025 */
 
 /* Reset some default browser styles */
-* {
-}
-
-header {
-}
-
-h1 {
-    font-size: 2rem;
-    margin: 0;
-    padding: 0;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
+    font-family: Cabin;
     font-size: 16px;
     line-height: 1;
-    color: #333;
+    margin: 0;
+
+    background: black;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 100vh;
+}
+
+/*  responsive elements     */
+.desktop-redirect {
+    display: none;
+    font-size: 1.3rem;
+    color: white;
+    text-align: center;
+    padding: 1.2rem;
+    text-shadow: 0 0 6px rgb(0, 0, 0);
+}
+.desktop-display {
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #000000;
+    z-index: 1;
+    text-align: center;
+}
+.mobile-wrapper {
+    display: block;
+    position: relative;
+    height: auto;
+}
+@media (min-width: 768px) {
+    .mobile-wrapper {
+        display: none;
+    }
+    .desktop-redirect {
+        display: block;
+    }
 }
 
-.info {
-    color: white;
-    font-family: OPTIGorilla;
+/*  hyperlinks     */
+a {
+    color: rgb(204, 204, 204);
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+}
+a:hover, a:active {
+    color: rgb(0, 110, 253);
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+}
+
+/*  images     */
+.image-layer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    will-change: transform;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0); /* force hardware acceleration */
+    backface-visibility: hidden; /* reduce flickering */
+}
+
+/*  text positions     */
+.text-container {
+    position: relative;
+    z-index: 10;
+    padding: 0 10vw;
+    opacity: 0;
+    transition: opacity 3s ease-in;
+}
+/*  text formatting     */
+.infotext {
+    max-width: 80vw;
+    margin: 0 auto;
+
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    color: rgb(175, 175, 175);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.74);
+}
+.block {
+    display: flex;
+    align-items: center;
+}
+
+.block.centreJustified {
+    justify-content: center;
+    text-align: center;
+}
+
+.block.leftJustified {
+    justify-content: flex-start;
+    text-align: left;
+}
+.pageBottom {
+    position: relative;
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 20px;  /* Optional: add some space at the bottom */
 }
 
 /*                                                                          background glow*/
 
 .glow {
-    width: 300px;
-    height: 300px;
+    position: absolute;
+    z-index: 0;
+    width: 350px;
+    height: 350px;
     background: radial-gradient(circle, #ff6200 10%, transparent 70%);
     border-radius: 50%;
     animation: pulse 8s infinite ease-in-out;
@@ -83,30 +169,30 @@ body {
     }
 }
 
-
-/*                                                                            links & buttons */
-a {
-    color: #007BFF;
-    text-decoration: underline;
+/*  scroll arrow    *//* Scroll arrow */
+.scroll-arrow {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; 
+    bottom: 30px;
+    left: 47%;
+    transform: translateX(-50%);
+    z-index: 11;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    width: 24px;
+    height: 24px;
+    animation: bounce 2s infinite;
+}
+.scroll-arrow svg {
+    fill: white;
+    width: 100%;
+    height: 100%;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
-
-.container {
-}
-
-
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 4px;
-}
-button:hover {
-    background-color: #0056b3;
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
 }
